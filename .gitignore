@@ -1,0 +1,27 @@
+# Data
+*.db
+*.sqlite
+*.csv
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# Build
+site/
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
