@@ -1,6 +1,0 @@
-getDistancetoNearestVehicle()
-getSpeedtoNearestVehicle()
-getLaneSignalPosition()
-stop()
-currentLane()
-getDirection()
