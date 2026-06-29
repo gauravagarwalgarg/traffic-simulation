@@ -1,0 +1,42 @@
+site_name: Indian Traffic Simulation
+site_description: Microscopic traffic flow simulation using IDM + MOBIL for Indian road dynamics
+site_url: https://gauravagarwalgarg.github.io/traffic-simulation/
+repo_url: https://github.com/GauravAgarwalGarg/traffic-simulation
+repo_name: GauravAgarwalGarg/traffic-simulation
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: orange
+      accent: deep orange
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - content.code.copy
+    - search.suggest
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Architecture: architecture.md
+  - Models:
+    - IDM (Longitudinal): idm.md
+    - MOBIL (Lateral): mobil.md
+    - Vehicle Profiles: profiles.md
+  - Data Science:
+    - Analytics Pipeline: telemetry.md
+    - Roadmap: roadmap.md
+  - References: references.md
