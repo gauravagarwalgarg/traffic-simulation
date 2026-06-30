@@ -1,5 +1,12 @@
 # Traffic Simulation 🚦
 
+[![CI](https://github.com/gauravagarwalgarg/traffic-simulation/actions/workflows/ci.yml/badge.svg)](https://github.com/gauravagarwalgarg/traffic-simulation/actions/workflows/ci.yml) [![Docs](https://img.shields.io/badge/docs-live-blue?logo=github)](https://gauravagarwalgarg.github.io/traffic-simulation/) ![Python](https://img.shields.io/badge/python-3.11+-blue?logo=python&logoColor=white) [![License](https://img.shields.io/github/license/gauravagarwalgarg/traffic-simulation)](https://github.com/gauravagarwalgarg/traffic-simulation/blob/development/LICENSE)
+
+> 📖 **Documentation**: [https://gauravagarwalgarg.github.io/traffic-simulation/](https://gauravagarwalgarg.github.io/traffic-simulation/)
+>
+> 📦 **Repository**: [GitHub](https://github.com/gauravagarwalgarg/traffic-simulation)
+
+
 > Microscopic traffic flow simulation for Indian road dynamics using IDM + MOBIL models.
 
 ## Architecture (4+1 View)
