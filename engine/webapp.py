@@ -130,11 +130,11 @@ td{padding:6px 8px;border-top:1px solid var(--border);color:#ccc}
     <div class="slider-row"><label>Multiplier</label><input type="range" min="5" max="50" value="10" id="speedSlider" oninput="updateSpeed()"><span id="speedVal">1.0x</span></div>
     <h3>ML Insight</h3>
     <div id="mlBox" style="font-size:10px;font-family:'JetBrains Mono',monospace;color:#888;line-height:1.8">
-      <div>Arrival: <span id="mlDist" style="color:var(--primary)">—</span></div>
-      <div>N trend: <span id="mlTrendN" style="color:#42a5f5">—</span></div>
-      <div>S trend: <span id="mlTrendS" style="color:#ef5350">—</span></div>
-      <div>E trend: <span id="mlTrendE" style="color:#66bb6a">—</span></div>
-      <div>W trend: <span id="mlTrendW" style="color:#ffd54f">—</span></div>
+      <div>Arrival: <span id="mlDist" style="color:var(--primary)"></span></div>
+      <div>N trend: <span id="mlTrendN" style="color:#42a5f5"></span></div>
+      <div>S trend: <span id="mlTrendS" style="color:#ef5350"></span></div>
+      <div>E trend: <span id="mlTrendE" style="color:#66bb6a"></span></div>
+      <div>W trend: <span id="mlTrendW" style="color:#ffd54f"></span></div>
       <div>Recommended: NS <span id="mlRecNS" style="color:var(--secondary)">50</span>% EW <span id="mlRecEW" style="color:var(--secondary)">50</span>%</div>
     </div>
   </div>
@@ -349,10 +349,10 @@ function updateAnalytics(a){
     const ml=a.ml;
     if(ml.distribution)document.getElementById('mlDist').textContent=ml.distribution.best_fit+' (CV='+ml.distribution.cv+')';
     if(ml.predictions){
-      document.getElementById('mlTrendN').textContent=ml.predictions.north?.trend||'—';
-      document.getElementById('mlTrendS').textContent=ml.predictions.south?.trend||'—';
-      document.getElementById('mlTrendE').textContent=ml.predictions.east?.trend||'—';
-      document.getElementById('mlTrendW').textContent=ml.predictions.west?.trend||'—';
+      document.getElementById('mlTrendN').textContent=ml.predictions.north?.trend||'';
+      document.getElementById('mlTrendS').textContent=ml.predictions.south?.trend||'';
+      document.getElementById('mlTrendE').textContent=ml.predictions.east?.trend||'';
+      document.getElementById('mlTrendW').textContent=ml.predictions.west?.trend||'';
     }
     if(ml.recommendation){
       document.getElementById('mlRecNS').textContent=ml.recommendation.ns_pct;

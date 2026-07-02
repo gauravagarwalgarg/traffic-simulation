@@ -51,7 +51,37 @@
 ## Quick Start
 
 ```bash
-pip install numpy
+pip install -r requirements.txt
+```
+
+### Option 1: Streamlit Dashboard (recommended)
+
+Interactive data science dashboard with real-time charts, analytics, and CSV export:
+
+```bash
+streamlit run app.py
+```
+
+The app includes multiple pages:
+- **📊 Simulation**Run and analyze intersection simulation
+- **🚗 Traffic UI**Visual traffic model with animated intersection view
+- **🧠 ML Ingress**Data ingress engine with 6 local ML models
+
+See [docs/streamlit.md](docs/streamlit.md) for full documentation.
+
+### Option 2: WebSocket + Canvas Visualization
+
+Real-time browser visualization via WebSocket and HTML Canvas:
+
+```bash
+python -m engine --web
+```
+
+### Option 3: Headless Simulation
+
+Run the engine without any UI (writes telemetry to SQLite):
+
+```bash
 python -m engine
 ```
 
@@ -77,6 +107,25 @@ SELECT CAST(timestamp AS INT) AS second, COUNT(DISTINCT vehicle_id) AS vehicles
 FROM telemetry GROUP BY second;
 ```
 
+## Data Ingress Engine + ML Models
+
+The `engine/ingress.py` and `engine/ml_models.py` modules provide a real-time ML pipeline:
+
+```
+Simulation (30fps) → Ingress Buffer → Preprocessor → ML Models → Results Store → UI
+```
+
+| Model | Method | Purpose |
+|-------|--------|---------|
+| Anomaly Detection | Z-score + IQR | Detect traffic surges, incidents |
+| LOS Classification | PCU density (INDO-HCM) | Level of Service A–F grading |
+| Speed Prediction | Online Linear Regression | Forecast speed 10s ahead |
+| Congestion Clustering | Density-based spatial | Identify hotspot cells |
+| Signal Optimizer | Online gradient descent | Optimize green time per arm |
+| Pattern Detection | Autocorrelation/FFT | Find cyclic traffic patterns |
+
+All models run **locally**no cloud APIs, no GPU required.
+
 ## Legacy Code
 
 The `Microscopic/` and `Project 2017/` folders contain the original 2017 implementation. The new `engine/` package is a complete rewrite with:
@@ -84,3 +133,4 @@ The `Microscopic/` and `Project 2017/` folders contain the original 2017 impleme
 - NumPy vectorized physics
 - IDM + MOBIL models (not custom acceleration)
 - Thread-safe telemetry pipeline
+- ML-powered data ingress engine
